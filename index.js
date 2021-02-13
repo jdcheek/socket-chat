@@ -3,15 +3,9 @@ const app = express();
 const PORT = 3000;
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
+const path = require("path");
 
-app.use(
-  express.static("public", {
-    index: false,
-    immutable: true,
-    cacheControl: true,
-    maxAge: "30d",
-  })
-);
+app.use(express.static(path.join(__dirname + "/public")));
 
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: "../socket-chat/public" });
