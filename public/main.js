@@ -3,11 +3,20 @@ const socket = io();
 const messages = document.getElementById("messages");
 const form = document.getElementById("form");
 const input = document.getElementById("input");
+const user = document.getElementById("username");
+let username;
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (input.value) {
-    socket.emit("chat message", input.value);
+  const time = new Date();
+  if (!username) {
+    username = user.value;
+  }
+  if (input.value && username) {
+    socket.emit(
+      "chat message",
+      `${username} ${time.toLocaleTimeString()} : ${input.value}`
+    );
     input.value = "";
   }
 });

@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <title>Socket-Chat</title>
   </head>
   <body>
     <ul id="messages"></ul>
-    <form id="form" action="">
+    <form id="form">
       <input id="input" autocomplete="off" /><button>Send</button>
+      <input id="username" autocomplete="off" placeholder="Enter username" />
     </form>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
