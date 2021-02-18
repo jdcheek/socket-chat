@@ -7,11 +7,28 @@
     <title>Socket-Chat</title>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form id="form">
-      <input id="input" autocomplete="off" /><button>Send</button>
-      <input id="username" autocomplete="off" placeholder="Enter username" />
-    </form>
+    <div class="login-container">
+      <form id="username-form">
+        <input
+          required
+          id="username"
+          autocomplete="off"
+          placeholder="Enter username"
+        />
+        <button>Enter Chat</button>
+      </form>
+    </div>
+    <div class="chat-container">
+      <div class="users">
+        <div id="user-list"></div>
+      </div>
+      <ul id="messages"></ul>
+      <form id="message-form">
+        <input required id="message-input" autocomplete="off" /><button>
+          Send
+        </button>
+      </form>
+    </div>
     <script src="/socket.io/socket.io.js"></script>
     <script type="module" src="main.js"></script>
   </body>
